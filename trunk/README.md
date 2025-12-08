@@ -9,31 +9,31 @@
 ## src/
 ##  ├── app/[FE]                          # 앱의 뼈대 및 전역 설정
 ##  │   ├── layouts/                      # 모든 페이지가 사용하는 레이아웃 (헤더, 푸터 등)
-##  │   │   └── Header.jsx
-##  │   │   └── Content.jsx
-##  │   │   └── Footer.jsx
-##  │   │   └── Layout.jsx
-##  │   │   └── Sidebar.jsx
+##  │   │   └── Header.tsx
+##  │   │   └── Content.tsx
+##  │   │   └── Footer.tsx
+##  │   │   └── Layout.tsx
+##  │   │   └── Sidebar.tsx
 ##  │   ├── router/                       # 라우팅 설정 파일(오직URL과 컴포넌트(페이지)를 연결)
-##  │   │   └── MainRouter.jsx            # 앱 전체의 최상위 라우터(모든 라우팅 파일을 import)
-##  │   │   └── AuthRouter.jsx            # 인증(로그인, 회원가입) 관련 경로만 모음
-##  │   │   └── ProductsRouter.jsx        # 상품 관리 관련 경로만 모음
-##  │   │   └── PrivateRoute.jsx          # 인증이 필요한 경로를 감싸는 Wrapper 컴포넌트
-##  │   │   └── PublicRoute.jsx           # 인증 없이 접근 가능한 경로를 감싸는 Wrapper 컴포넌트
+##  │   │   └── MainRouter.tsx            # 앱 전체의 최상위 라우터(모든 라우팅 파일을 import)
+##  │   │   └── AuthRouter.tsx            # 인증(로그인, 회원가입) 관련 경로만 모음
+##  │   │   └── ProductsRouter.tsx        # 상품 관리 관련 경로만 모음
+##  │   │   └── PrivateRoute.tsx          # 인증이 필요한 경로를 감싸는 Wrapper 컴포넌트
+##  │   │   └── PublicRoute.tsx           # 인증 없이 접근 가능한 경로를 감싸는 Wrapper 컴포넌트
 ##  │   │   └── types.ts                  # 라우팅 경로 상수 및 파라미터 타입 정의 (TypeScript)
-##  │   └── index.jsx                     # 앱의 최상위 컴포넌트
+##  │   └── index.tsx                     # 앱의 최상위 컴포넌트
 ##  |   ...
 ##  ├── features/[FE/C]                   # 핵심 비즈니스 로직 및 기능 구현 (도메인 중심)
 ##  │   ├── auth/                         # 사용자 인증, 로그인/회원가입 관련
 ##  │   │   ├── components/               # Auth 기능 전용 컴포넌트
-##  │   │   │   └── LoginForm.jsx
+##  │   │   │   └── LoginForm.tsx
 ##  │   │   │   └── LoginForm.module.scss # 기능 전용 스타일 (CSS Modules 권장)
 ##  │   │   ├── hooks/                    # Auth 기능 전용 비즈니스 훅
 ##  │   │   │   └── useLogin.js
 ##  │   │   └── authApi.ts[BE]            # Auth 관련 서버 통신 로직
 ##  │   └── products/                     # 상품 목록/상세 보기 관련
 ##  │       ├── components/               # Products 기능 전용 컴포넌트
-##  │       │   └── ProductCard.jsx
+##  │       │   └── ProductCard.tsx
 ##  │       │   └── ProductCard.module.scss # 기능 전용 스타일
 ##  │       ├── hooks/                    # Products 기능 전용 비즈니스 훅
 ##  │       │   └── useProductFilter.js
@@ -41,15 +41,15 @@
 ##  |   ...
 ##  ├── shared/                           # 전역 재사용 가능한 공통 요소 (순수 로직/UI)
 ##  │   ├── ui/[FE]                       # 전역 재사용 UI 컴포넌트 (Design System) 상태/로직 X
-##  │   │   └── Fieldset.jsx
-##  │   │   └── Popup.jsx
-##  │   │   └── Table.jsx
-##  │   │   └── Tab.jsx
-##  │   │   └── Card.jsx
-##  │   │   └── Button.jsx
-##  │   │   └── Flag.jsx
-##  │   │   └── Etc.jsx
-##  │   │   └── Slider.jsx
+##  │   │   └── Fieldset.tsx
+##  │   │   └── Popup.tsx
+##  │   │   └── Table.tsx
+##  │   │   └── Tab.tsx
+##  │   │   └── Card.tsx
+##  │   │   └── Button.tsx
+##  │   │   └── Flag.tsx
+##  │   │   └── Etc.tsx
+##  │   │   └── Slider.tsx
 ##  │   ├── hooks/[FE]                    # 전역에서 재사용되는 범용 커스텀 훅
 ##  │   │   └── useDebounce.js
 ##  │   │   └── useThrottle.js
@@ -81,30 +81,31 @@
 ##  │   │   └── index.js                  # 모든 슬라이스를 하나로 합치는 rootReducer 역할
 ##  │   └── types/                        # Redux 관련 타입 정의 (TypeScript 사용 시)
 ##  │       └── store.d.ts                # 전역 상태 및 액션 타입 정의
-##  └── styles/[FE]                       # 전역 스타일 정의 (가장 중요한 Sass 위치)
-##      ├── base/                         # 공통 요소 셋팅
-##      │   └── _reset.scss               # reset, font, input, button, img 등 기본 default reset 정의
-##      │   └── _global.scss              # 브라우저 기본 스타일 초기화 정의
-##      │   └── _fonts.scss
-##      ├── themes/                       # 다크모드, 라이트모드 등 기본 테마별 컬러 변수파일
-##      │   └── _dark-mode.scss  
-##      │   └── _light-mode.scss  
-##      ├── abstracts/                    # 추상화된 공통 요소
-##      │   └── _variables.scss           # 전역변수, splite image 변수, 기타 공통 변수선언
-##      │   └── _mixins.scss   
-##      │   └── _functions.scss
-##      ├── components/                   # 공통 컴포넌트 모음
-##      │   └── _fieldset.scss
-##      │   └── _layout.scss
-##      │   └── _popup.scss
-##      │   └── _table.scss
-##      │   └── _tab.scss
-##      │   └── _card.scss
-##      │   └── _button.scss
-##      │   └── _flag.scss
-##      │   └── _etc.scss
-##      │   └── _slider.scss
-##      ├── error/                        # 에러페이지 전용 스타일
-##      │   └── _error.scss
-##      └── main.scss                     # 모든 _scss 파일을 import하는 최종 진입점
+##  ├── styles/[FE]                       # 전역 스타일 정의 (가장 중요한 Sass 위치)
+##  │   ├── base/                         # 공통 요소 셋팅
+##  │   │   └── _fonts.scss
+##  │   │   └── _reset.scss               # reset, font, input, button, img 등 기본 default reset 정의
+##  │   │   └── _global.scss              # 브라우저 기본 스타일 초기화 정의
+##  │   ├── themes/                       # 다크모드, 라이트모드 등 기본 테마별 컬러 변수파일
+##  │   │   └── _dark-mode.scss  
+##  │   │   └── _light-mode.scss  
+##  │   ├── abstracts/                    # 추상화된 공통 요소
+##  │   │   └── _variables.scss           # 전역변수, splite image 변수, 기타 공통 변수선언
+##  │   │   └── _mixins.scss   
+##  │   │   └── _functions.scss
+##  │   ├── components/                   # 공통 컴포넌트 모음
+##  │   │   └── _fieldset.scss
+##  │   │   └── _layout.scss
+##  │   │   └── _popup.scss
+##  │   │   └── _table.scss
+##  │   │   └── _tab.scss
+##  │   │   └── _card.scss
+##  │   │   └── _button.scss
+##  │   │   └── _flag.scss
+##  │   │   └── _etc.scss
+##  │   │   └── _slider.scss
+##  │   ├── error/                        # 에러페이지 전용 스타일
+##  │   │   └── _error.scss
+##  │   ├── main.scss                     # 모든 _scss 파일을 import하는 최종 진입점
+##  ├── fonts/                            # 폰트 파일 (.woff, .woff2. otf..)
 ##      ...

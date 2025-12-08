@@ -1,0 +1,18 @@
+$max-width-pc: 960px; /* PC 기본 너비 */
+
+/* 반응형 브레이크 포인트 (예시) */
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+/* 공통 컬러 변수 (시안에 맞춰 정의 필요) */
+$color-black: #000000;
+$color-white: #ffffff;
+$color-primary: #000000; /* 주 Call to action 버튼 색상 (Desktop 시안 기준) */
+$color-secondary: #ffffff; /* 보조 버튼 색상 */
+$color-border: #cccccc;
+$color-background-light: #f0f8ff; /* 맵 섹션 배경색 (Mobile 시안 기준) */
+
+
+body {
+    background-color: orange;
+}

@@ -1,0 +1,20 @@
+@use '@styles/abstracts/variables' as var;
+
+.container {
+    max-width: var.$max-width-pc; /* PC 최대 너비 960px 적용 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 여백 (모바일/태블릿 고려) */
+    width: 100%;
+  }
+  
+  @media (max-width: #{var.$max-width-pc + 40px}) { /* 최대 너비 초과 시 */
+    .container {
+      padding: 0 20px; /* 960px 보다 작아지면 여백을 20px 유지 */
+    }
+  }
+  
+  @media (max-width: var.$breakpoint-mobile) {
+    .container {
+      padding: 0 16px; /* 모바일 시 여백 더 줄이기 */
+    }
+  }

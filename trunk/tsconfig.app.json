@@ -22,7 +22,33 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+
+    // -----------------------------------------------------
+    // 경로 설정 (Path Aliases)
+    // -----------------------------------------------------
+    // 절대 경로의 시작점을 'src' 폴더로 설정합니다. 
+    // 이제 'src' 폴더 내부에서 '@shared/...'와 같이 바로 접근할 수 있습니다.
+    "baseUrl": "./src",     
+    // FSD 레이어별 절대 경로 별칭을 정의합니다.
+    "paths": {
+      "@/*": ["src/*"],
+      "@app/*": ["app/*"],
+      "@features/*": ["features/*"],
+      "@shared/*": ["shared/*"],
+      "@store/*": ["store/*"],
+      "@styles/*": ["styles/*"],
+    },
   },
-  "include": ["src"]
+  // -----------------------------------------------------
+  // 포함 불포함 사항
+  // -----------------------------------------------------
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
